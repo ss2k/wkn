@@ -1,0 +1,7 @@
+/.bundle
+/.rspec
+/config/database.yml
+/config/wifi_k9_config.yml
+/log/*.log
+/tmp
+
