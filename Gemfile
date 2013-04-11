@@ -18,6 +18,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.0.3'
+  gem 'factory_girl_rails', '~> 4.2.1'
   gem 'timecop', '~> 0.6.1'
 end
 

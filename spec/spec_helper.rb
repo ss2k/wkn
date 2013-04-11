@@ -41,4 +41,6 @@ RSpec.configure do |config|
     # Disable the `should` syntax
     c.syntax = :expect
   end
+
+  config.include FactoryGirl::Syntax::Methods
 end

@@ -52,3 +52,19 @@ feature 'User registration' do
   end
 end
 
+feature 'Edit registration' do
+  given!(:user) { create(:user) }
+
+  scenario 'Display the form to edit user information' do
+    # We can trust Devise to correctly handle the edit/update actions. We just
+    # want to test that the application itself has the link rendered and it
+    # redirects to the edit_user_registration_path.
+    sign_in_as user
+    click_link 'Edit Account'
+    expect(page).to have_selector '#user_email'
+    expect(page).to have_selector '#user_password'
+    expect(page).to have_selector '#user_password_confirmation'
+    expect(page).to have_selector '#user_current_password'
+  end
+end
+
