@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
 gem 'devise', '~> 2.2.3'
 gem 'high_voltage', '~> 1.2.2'
 gem 'jquery-rails'

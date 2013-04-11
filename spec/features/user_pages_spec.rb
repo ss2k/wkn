@@ -60,7 +60,7 @@ feature 'Edit registration' do
     # want to test that the application itself has the link rendered and it
     # redirects to the edit_user_registration_path.
     sign_in_as user
-    click_link 'Edit Account'
+    click_link 'Settings'
     expect(page).to have_selector '#user_email'
     expect(page).to have_selector '#user_password'
     expect(page).to have_selector '#user_password_confirmation'

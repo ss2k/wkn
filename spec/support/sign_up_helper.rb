@@ -2,7 +2,9 @@ module SignUpHelper
   def sign_up_with email, password, password_confirmation = nil
     password_confirmation ||= password
     visit root_path
-    click_link 'Sign up'
+    within '.nav' do
+      click_link 'Sign up'
+    end
     fill_in :user_email, :with => email
     fill_in :user_password, :with => password
     fill_in :user_password_confirmation, :with => password_confirmation
