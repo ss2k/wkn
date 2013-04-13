@@ -28,5 +28,7 @@ class Hotspot < ActiveRecord::Base
   validates :name, :category, :presence => true
   validates :name, :category, :group, :length => { :maximum => 128 }
   validates :terms_of_service, :acceptance => true
+
+  belongs_to :user
 end
 

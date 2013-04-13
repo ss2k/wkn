@@ -2,7 +2,7 @@ class HotspotsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    @hotspot = Hotspot.new params[:hotspot]
+    @hotspot = current_user.hotspots.build params[:hotspot]
     if @hotspot.save
       redirect_to hotspots_path
     else
@@ -11,7 +11,7 @@ class HotspotsController < ApplicationController
   end
 
   def index
-    @hotspots = Hotspot.all
+    @hotspots = current_user.hotspots
   end
 
   def new

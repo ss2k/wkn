@@ -9,6 +9,7 @@ FactoryGirl.define do
   factory :hotspot do
     sequence(:name) { |n| "hotspot_#{n}" }
     category 'Computers & Electronics'
+    user
   end
 end
 
