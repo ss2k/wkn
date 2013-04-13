@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410121132) do
+ActiveRecord::Schema.define(:version => 20130412114529) do
+
+  create_table "hotspots", :force => true do |t|
+    t.string   "name",       :limit => 128, :null => false
+    t.string   "group",      :limit => 128
+    t.string   "category",   :limit => 128, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "hotspots", ["name", "category"], :name => "index_hotspots_on_name_and_category", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

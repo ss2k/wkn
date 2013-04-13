@@ -34,5 +34,10 @@ body {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+  display: inline;
+}
+
+.create_description, .not_current_user {
+  margin-bottom: 2em;
 }
 

@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+  <%= content_tag :li, link_to('Hotspots', hotspots_path), :class => 'hotspots' == params[:controller] ? 'active' : nil %>
+  <%= content_tag :li, link_to('Account',  edit_user_registration_path), :class => devise_controller? ? 'active' : nil %>
+</ul>
+

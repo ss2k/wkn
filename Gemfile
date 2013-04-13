@@ -14,7 +14,8 @@ group :assets do
 end
 
 group :development, :test do
-  gem "rspec-rails"
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 2.0.0'
 end
 
 group :test do

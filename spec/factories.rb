@@ -5,5 +5,10 @@ FactoryGirl.define do
     password 'password1234'
     password_confirmation 'password1234'
   end
+
+  factory :hotspot do
+    sequence(:name) { |n| "hotspot_#{n}" }
+    category 'Computers & Electronics'
+  end
 end
 

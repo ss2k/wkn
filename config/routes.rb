@@ -2,6 +2,8 @@ WifiK9::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'pages#show', :id => 'dashboard'
+  root :to => 'hotspots#index'
+
+  resources :hotspots, :only => [:create, :index, :new]
 end
 
