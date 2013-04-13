@@ -15,8 +15,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-WIFI_K9_CONFIG = YAML.load(File.read(File.expand_path('../wifi_k9_config.yml', __FILE__)))
-
 module WifiK9
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
