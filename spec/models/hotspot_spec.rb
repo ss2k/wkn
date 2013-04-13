@@ -19,5 +19,9 @@ describe Hotspot do
     create(:hotspot)
     should validate_uniqueness_of(:name).case_insensitive
   end
+
+  it { should have_one(:address).dependent(:destroy) }
+
+  it { should accept_nested_attributes_for(:address) }
 end
 

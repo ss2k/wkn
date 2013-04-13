@@ -66,5 +66,26 @@ feature 'Edit registration' do
     expect(page).to have_selector '#user_password_confirmation'
     expect(page).to have_selector '#user_current_password'
   end
+
+  scenario 'Add my address' do
+    sign_in_as user
+    click_link 'Settings'
+    fill_in 'Address 1', :with => '26 Broadway' # Wall Street Charging Bull
+    fill_in 'City', :with => 'New York City'
+    fill_in 'State', :with => 'NY'
+    fill_in 'Zip', :with => '10004'
+    fill_in 'Country', :with => 'USA'
+    fill_in 'Current password', :with => user.password
+    click_button 'Update'
+    expect(page).to have_css '.alert', :text => 'You updated your account successfully.'
+  end
+
+  scenario 'Allow user to ignore address fields' do
+    sign_in_as user
+    click_link 'Settings'
+    fill_in 'Current password', :with => user.password
+    click_button 'Update'
+    expect(page).to have_css '.alert', :text => 'You updated your account successfully.'
+  end
 end
 

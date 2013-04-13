@@ -21,7 +21,7 @@ class Hotspot < ActiveRecord::Base
     'Health & Medicine',
   ]
 
-  attr_accessible :category, :group, :name, :terms_of_service
+  attr_accessible :category, :group, :name, :terms_of_service, :address_attributes
 
   validates :category, :inclusion => { :in => CATEGORIES }
   validates :name, :uniqueness => { :case_sensitive => false }
@@ -30,5 +30,9 @@ class Hotspot < ActiveRecord::Base
   validates :terms_of_service, :acceptance => true
 
   belongs_to :user
+
+  has_one :address, :as => :addressable, :dependent => :destroy
+
+  accepts_nested_attributes_for :address
 end
 

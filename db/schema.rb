@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413190908) do
+ActiveRecord::Schema.define(:version => 20130413191937) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "address1",         :null => false
+    t.string   "address2"
+    t.string   "city",             :null => false
+    t.string   "state",            :null => false
+    t.string   "country",          :null => false
+    t.string   "postal_code",      :null => false
+    t.integer  "addressable_id",   :null => false
+    t.string   "addressable_type", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "addresses", ["address1"], :name => "index_addresses_on_address1"
+  add_index "addresses", ["city"], :name => "index_addresses_on_city"
+  add_index "addresses", ["postal_code"], :name => "index_addresses_on_postal_code"
+  add_index "addresses", ["state"], :name => "index_addresses_on_state"
 
   create_table "hotspots", :force => true do |t|
     t.string   "name",       :limit => 128, :null => false

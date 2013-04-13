@@ -16,6 +16,7 @@ class HotspotsController < ApplicationController
 
   def new
     @hotspot = Hotspot.new
+    @hotspot.address = Address.new
   end
 end
 

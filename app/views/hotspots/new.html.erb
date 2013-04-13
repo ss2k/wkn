@@ -15,28 +15,7 @@
   <div class="span12">
     <%= form_for @hotspot, :html => { :class => 'form-horizontal' } do |f| %>
       <%= render 'shared/error_messages', :object => f.object %>
-
-      <div class="control-group">
-        <%= f.label :name, 'Hotspot Name', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :name %>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <%= f.label :category, 'Business Category', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.select :category, Hotspot::CATEGORIES %>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <div class="controls">
-          <%= f.check_box :terms_of_service %>
-          <%= f.label :terms_of_service, 'Accept Hotspot Terms and Conditions', :class => 'checkbox inline' %>
-        </div>
-      </div>
-
+      <%= render 'hotspots/fields', :f => f %>
       <div class="control-group">
         <div class="controls">
           <%= f.submit 'Create Hotspot', :class => 'btn' %>

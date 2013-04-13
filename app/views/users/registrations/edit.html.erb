@@ -2,11 +2,12 @@
 
 <div class="row">
   <div class="span12">
+    <% resource.build_address if resource.address.nil? %>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="control-group">
-        <%= f.label :email, :class => 'control-label' %>
+        <%= f.label :email %>
         <div class="controls">
           <%= f.email_field :email, :autofocus => true %>
         </div>
@@ -17,7 +18,7 @@
       <% end %>
 
       <div class="control-group">
-        <%= f.label :password, "New password" , :class => 'control-label' %>
+        <%= f.label :password, "New password" %>
         <div class="controls">
           <%= f.password_field :password, :autocomplete => "off" %>
           <i><small>(Leave blank if you do not want to change your password)</small></i>
@@ -25,14 +26,18 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :password_confirmation, 'Confirm new password', :class => 'control-label' %>
+        <%= f.label :password_confirmation, 'Confirm new password' %>
         <div class="controls">
           <%= f.password_field :password_confirmation %>
         </div>
       </div>
 
+      <%= f.fields_for :address do |builder| %>
+        <%= render 'addresses/fields', :f => builder %>
+      <% end %>
+
       <div class="control-group">
-        <%= f.label :current_password, :class => 'control-label' %>
+        <%= f.label :current_password %>
         <div class="controls">
           <%= f.password_field :current_password %>
           <i><small>(We need your current password to confirm your changes)</small></i>
