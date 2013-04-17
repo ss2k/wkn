@@ -66,4 +66,15 @@ WifiK9::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.action_mailer.default_url_options = { :host => 'wifi-k9.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:              ENV['EMAIL_ADDRESS'],
+    port:                 ENV['EMAIL_PORT'],
+    authentication:       :plain,
+    enable_starttle_auto: true,
+    user_name:            ENV['EMAIL_USERNAME'],
+    password:             ENV['EMAIL_PASSWORD']
+  }
 end
