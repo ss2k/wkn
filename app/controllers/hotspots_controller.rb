@@ -1,10 +1,8 @@
 class HotspotsController < ApplicationController
-  before_filter :authenticate_user!
-
   def create
     @hotspot = current_user.hotspots.build params[:hotspot]
     if @hotspot.save
-      redirect_to hotspots_path
+      redirect_to root_path
     else
       render :new
     end

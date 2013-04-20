@@ -9,7 +9,6 @@
 <body>
 <%= render 'layouts/header' %>
 <div class="container">
-  <%= render 'layouts/navigation' if user_signed_in? %>
   <% viewable_flash.each do |key, value| %>
     <%= content_tag :div, value, :class => "alert alert-#{key}" if value.present? %>
   <% end %>
