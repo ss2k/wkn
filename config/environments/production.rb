@@ -65,7 +65,9 @@ WifiK9::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'wifi-k9.herokuapp.com' }
+  config.action_mailer.default_url_options = {
+    :host => ENV['WIFI_K9_URL_HOST']
+  }
 
   config.action_mailer.delivery_method = :smtp
 
