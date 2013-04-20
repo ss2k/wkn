@@ -2,7 +2,7 @@
 
 <ul>
   <% @hotspots.each do |hotspot| %>
-    <li><%= hotspot.name %></li>
+    <li><%= link_to hotspot.name, hotspot_path(hotspot) %></li>
   <% end %>
 </ul>
 <%= link_to 'Create a Hotspot', new_hotspot_path %>

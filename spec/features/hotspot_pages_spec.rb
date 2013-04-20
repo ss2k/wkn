@@ -19,7 +19,7 @@ feature 'Hotspot pages' do
   scenario 'Create Hotspots' do
     complete_hotspot_form_with 'abcd'
     click_button 'Create Hotspot'
-    expect(page).to have_css 'li', :text => 'abcd'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'abcd'
   end
 
   scenario 'Create Hotspot without accepting terms of service' do
@@ -35,6 +35,13 @@ feature 'Hotspot pages' do
     visit root_path
     expect(page).to have_css 'li', :text => mine.name
     expect(page).not_to have_css 'li', :text => not_mine.name
+  end
+
+  scenario 'Go to Hotspot page from dashboard' do
+    hotspot = create(:hotspot, :name => 'abcd', :user => user)
+    visit root_path
+    click_link 'abcd'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'abcd'
   end
 end
 

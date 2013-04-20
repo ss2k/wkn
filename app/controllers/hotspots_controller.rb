@@ -2,7 +2,7 @@ class HotspotsController < ApplicationController
   def create
     @hotspot = current_user.hotspots.build params[:hotspot]
     if @hotspot.save
-      redirect_to root_path
+      redirect_to @hotspot
     else
       render :new
     end
@@ -15,6 +15,10 @@ class HotspotsController < ApplicationController
   def new
     @hotspot = Hotspot.new
     @hotspot.address = Address.new
+  end
+
+  def show
+    @hotspot = Hotspot.find params[:id]
   end
 end
 
