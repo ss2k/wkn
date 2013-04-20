@@ -17,3 +17,17 @@ describe ApplicationHelper, '#viewable_flash' do
   end
 end
 
+describe ApplicationHelper, '#full_title' do
+  it 'Includes the page title' do
+    expect(full_title('abcd')).to match /abcd$/
+  end
+
+  it 'Includes the base title' do
+    expect(full_title('efgh')).to match /^WiFi-K9/
+  end
+
+  it 'Does not include the page title when empty' do
+    expect(full_title).to eq 'WiFi-K9'
+  end
+end
+

@@ -5,18 +5,24 @@ feature 'Hotspot pages' do
 
   background do
     sign_in_as user
+  end
+
+  scenario 'Display page title of "Hotspots" when in dashboard' do
+    expect(page).to have_css '[data-role="page-title"]', :text => 'Hotspots'
+  end
+
+  scenario 'Display welcome message when in new page' do
     click_link 'Create a Hotspot'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'Welcome to the WiFi-K9 Network!'
   end
 
   scenario 'Create Hotspots' do
-    click_button 'Create Hotspot'
     complete_hotspot_form
     click_button 'Create Hotspot'
     expect(page).to have_css 'li', :text => 'abcd'
   end
 
   scenario 'Create Hotspot without accepting terms of service' do
-    fill_in 'Hotspot Name', :with => 'abcd'
     complete_hotspot_form
     page.uncheck 'Accept Hotspot Terms and Conditions'
     click_button 'Create Hotspot'
@@ -32,6 +38,7 @@ feature 'Hotspot pages' do
   end
 
   def complete_hotspot_form
+    click_link 'Create a Hotspot'
     fill_in 'Hotspot Name', :with => 'abcd'
     page.select 'Food & Dining', :from => 'Business Category'
     fill_in 'Address 1', :with => '26 Broadway'
