@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413191937) do
+ActiveRecord::Schema.define(:version => 20130423000034) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1",         :null => false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(:version => 20130413191937) do
 
   add_index "hotspots", ["category"], :name => "index_hotspots_on_category"
   add_index "hotspots", ["name"], :name => "index_hotspots_on_name", :unique => true
+
+  create_table "landings", :force => true do |t|
+    t.integer  "hotspot_id",                 :null => false
+    t.string   "title",                      :null => false
+    t.text     "markup",     :default => "", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "landings", ["hotspot_id", "title"], :name => "index_landings_on_hotspot_id_and_title", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

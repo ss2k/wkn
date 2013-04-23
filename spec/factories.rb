@@ -11,5 +11,10 @@ FactoryGirl.define do
     category 'Computers & Electronics'
     user
   end
+
+  factory :landing do
+    sequence(:title) { |n| "landing_#{n}" }
+    hotspot
+  end
 end
 

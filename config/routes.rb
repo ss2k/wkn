@@ -5,5 +5,7 @@ WifiK9::Application.routes.draw do
   root :to => 'hotspots#index'
 
   resources :hotspots, :only => [:create, :new, :show]
+
+  resources :landings, :only => [:create, :new]
 end
 

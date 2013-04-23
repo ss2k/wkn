@@ -1,0 +1,25 @@
+<% content_for :page_title, 'Create Landing Page' %>
+
+<%= form_for @landing do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :markup %>
+  <%= f.text_area :markup, :class => 'tinymce' %>
+<% end %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+  selector: "textarea",
+  theme: "modern",
+  plugins: [
+    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+    "searchreplace wordcount visualblocks visualchars code fullscreen",
+    "insertdatetime media nonbreaking save table contextmenu directionality",
+    "emoticons template paste"
+  ],
+  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image print preview media | forecolor backcolor emoticons"
+});
+</script>
+

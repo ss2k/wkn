@@ -7,6 +7,8 @@ describe Hotspot do
   it { should ensure_length_of(:category).is_at_most(128) }
   it { should ensure_length_of(:group).is_at_most(128) }
 
+  it { should have_many(:landings) }
+
   it { should validate_acceptance_of(:terms_of_service) }
 
   it { should validate_presence_of(:name) }
