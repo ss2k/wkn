@@ -15,5 +15,14 @@ feature 'Landing pages' do
     expect(page).to have_css '#landing_markup'
     expect(page).to have_css '.tinymce'
   end
+
+  scenario 'Create and submit a new landing page' do
+    click_link 'Create a Landing Page'
+    fill_in 'Title', :with => 'Main Landing Page'
+    fill_in 'Customization', :with => '<p>Hello</p>'
+    click_button 'Create Landing Page'
+    expect(page).to have_css '.landing-title', :text => 'Main Landing Page'
+    expect(page).to have_css '.landing-markup', :text => 'Hello'
+  end
 end
 
