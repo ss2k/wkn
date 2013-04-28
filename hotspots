@@ -1,0 +1,416 @@
+\du
+/?
+\?
+\?
+\ddp
+\du
+\q
+\dt
+\dt
+\?
+\l
+\dt
+\dl
+\q
+create role reminder with createdb password '5c5b0f455d5a114fb15e8e7f90eba9348f20f716b204e216c3134917a478e51827ccc357280d0cc260b662bf97b7d048800a9d49f5971dd9b5afad5020d657b5';
+\q
+create role reminder_application with createdb password '5c5b0f455d5a114fb15e8e7f90eba9348f20f716b204e216c3134917a478e51827ccc357280d0cc260b662bf97b7d048800a9d49f5971dd9b5afad5020d657b5';
+\q
+\dl
+\l
+\du
+\?
+set role reminder_application
+;
+\du
+\dl
+\dt
+\q
+\du
+alter role reminder_application with login;
+\q
+\du
+drop role reminder_application;
+\du
+create role reminders_application with createdb login password '5c5b0f455d5a114fb15e8e7f90eba9348f20f716b204e216c3134917a478e51827ccc357280d0cc260b662bf97b7d048800a9d49f5971dd9b5afad5020d657b5'
+;
+\du
+\q
+\du
+\dl
+\dt
+\q
+\du
+drop role reminders_application;
+create role reminders_application with createdb login password 'reminders_application';
+\q
+\du
+\q
+\du
+\q
+\q
+exit
+\q
+\du
+alter role reminders_application password '5656cc9a48f3e62eaf3cdefe6e561c43d3494bf031356060dfcafd838e1852ea848522117355c29ac0c2a0863afcff93de3141db70048adaf11d43ece1ba3678'
+;
+\q
+\dt
+select * from items;
+\q
+\dt
+\du
+\dt
+drop table schema_migrations;
+\dt
+\q
+Item.new.save
+\q
+select * from items;
+\q
+\dl
+\du
+create role restaurant_application createdb login password 'restaurant_application';
+\du
+\q
+\dt
+drop table schema_migrations ;
+DROP TABLE tables;
+DROP TABLE tabs;
+\dt
+\q
+\dt
+\q
+\dt
+drop table schema_migrations 
+;
+drop table tables;
+drop table tabs;
+\q
+drop database restaurant_development 
+;
+\q
+drop database restaurant_development ;
+drop database restaurant_test ;
+\q
+\?
+\dn tabs;
+\dn tabs
+\dS tabs;
+\q
+\dt
+drop database restaurant_development;
+drop database restaurant_test;
+\q
+select * from foods;
+\q
+select * from tables;
+select * from tabs;
+select * from tab_items;
+select * from foods;
+\q
+select * from tables;
+select * from tabs;
+select * from tab_items;
+select * from foods;
+\q
+select * from tables;
+select * from tabs;
+select * from tab_items;
+select * from foods;
+\q
+\dt
+\
+\du
+create role gitscores_application login password 'gitscores_application';
+\du
+\q
+\du
+drop role gitscores_application
+;
+create role gitscores_application with createdb login password 'gitscores_application';
+\q
+\du
+drop role gitscores_application
+;
+drop role gitscores_application;
+\q
+drop database gitscores_production;
+drop database gitscores_test;
+drop database gitscores_development;
+\q
+drop role gitscores_application;
+\du
+\dl
+\dt
+drop role reminders_application;
+\q
+\dt
+\du
+\q
+\dt
+\du
+drop database restaurant_application;
+drop database restaurant_test;
+drop database restaurant_development;
+drop database restaurant_production;
+\q
+drop role restaurant_application;
+\q
+\du
+\q
+\du
+create role ordr with createdb login password 'ordr';
+\q
+select * tables;
+select * from tables;
+\q
+\dr
+\du
+\q
+\du
+\dt
+\dl
+\?
+\l
+\q
+create role quoter with createdb login password 'quoter';
+\q
+\u
+\du
+\q
+\du
+create role milieu with createdb login password 'milieu';
+\q
+\du
+\l
+create role reminders with createdb login password 'reminders';
+\q
+\l
+\du
+drop role reminders;
+\du
+\l
+\q
+\l
+\du
+create role helix with createdb login password 'helix';
+\q
+select * from items;
+exit
+\q
+l
+;
+\l
+\du
+create role raffler with createdb login password 'raffler';
+\q
+select * from composites;
+\q
+select * from composites;
+[q
+pq
+\q
+\du
+create role dispatcher with createdb login password 'dispatcher';
+\q
+select * from composites;
+\q
+select * from composites;
+insert into composites (description, composite_id) values ("whoa", 5);
+\q
+select * from composites;
+\q
+select * from composites;
+select * from composites;
+select * from composites order by id;
+\q
+select * from composites;
+\q
+SELECT "composites".* FROM "composites" INNER JOIN "composites" "composites_composites" ON "composites_composites"."composite_id" = "composites"."id"
+;
+SELECT "composites".* FROM "composites" INNER JOIN "composites" "composites_composites" ON "composites_composites"."composite_id" = "composites"."id";
+SELECT "composites".* FROM "composites" INNER JOIN "composites" "composites_composites" ON "composites_composites"."composite_id" = "composites"."id" order by "composites"."id";
+SELECT "composites".* FROM "composites" INNER JOIN "composites" "composites_composites" ON "composites_composites"."composite_id" = "composites"."id" order by "composites"."id";
+\q
+select * from composites;
+select * from composites;
+\q
+select * from composites;
+\q
+select * from composites;
+\q
+\dt
+\dl
+\du
+\?
+\d
+use raffler
+;
+\connect raffler_development
+\l
+\dt
+select * from entries;
+\q
+select * from entries;
+\1
+\q
+\q
+\l
+drop database helix_development;
+\q
+drop database helix_development;
+\q
+drop database helix_development;
+\q
+select * from composites;
+drop database helix_development;
+\q
+\q
+create role wifi_k9 with createdb login password 'wifi_k9'
+;
+\q
+select * from composites;
+\q
+select * from composites;
+\q
+\l
+\du
+\
+\q
+select * from users;
+\q
+select * from users;
+select * from users;
+\l
+\t
+\dt
+select * from users;
+\q
+select * from usres;
+select * from users;
+\q
+select * from composites;
+\q
+\dt
+\dl
+\l
+\q
+select *from entries;
+\q
+create role user_uservice with createdb login password 'user_service';
+\q
+\du
+\q
+alter role user_service with password 'user_service'
+;
+drop role user_uservice;
+create role user_service with createdb login password 'user_service';
+\q
+\u
+\q
+\u
+\du
+\q
+\dt
+\dl
+\du
+\?
+\l
+create database user_service_development;
+create database user_service_test;
+\q
+\l
+\t
+\?
+\d
+select * from schema_migrations;
+\
+\q
+\q
+\l
+drop database users_service_development;
+drop database user_service_development;
+\q
+drop database user_service_development;
+drop database user_service_test;
+\l
+\q
+drop database dispatcher_development;
+drop database dispatcher_test;
+\l
+\q
+create role foo;
+drop role foo;
+\q
+\u
+\du
+\q
+create role hashtag with createdb login password 'hashtag';
+\q
+\q
+\l
+create role inquirer with createdb login password inquirer;
+create role inquirer with createdb login password 'inquirer';
+\q
+\q
+\l
+drop inquirer_test;
+drop database inquirer_test;
+drop database inquirer_development;
+drop role inquirer;
+\q
+drop role inquirer;
+\l
+\q
+select *from entries
+;
+\q
+select * from entries;
+select * from entries;
+\q
+create role vest with createdb login password 'vest';
+\q
+select * from users;
+\l
+\t
+\dt
+\du
+/?
+;
+\?
+\d
+\q
+\l
+drop database vest_development;
+drop database vest_test;
+\q
+drop role vest;
+\q
+\l
+\q
+\q
+\l
+create role questionnaire with createdb login password 'questionnaire';
+\q
+\l
+create role tunes with createdb login password 'tunes';
+\q
+select * from albums;
+select * from tracks;
+\q
+\l
+create role ember-app with createdb login password 'ember-app'
+;
+create role ember_app with createdb login password 'ember-app';
+\q
+alter role ember_app password 'ember_app';
+\q
+.?
+\q
+\?
+\dn hotspot
+\?
+\d hotspots
+\q
+\s hotspots

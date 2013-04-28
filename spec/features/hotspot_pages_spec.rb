@@ -30,7 +30,7 @@ feature 'Hotspot pages' do
   end
 
   scenario 'Access only hotspots owned by the user' do
-    mine = create(:hotspot, :user => user)
+    mine = user.hotspots.create(:name => 'abcd', :category => 'Education')
     not_mine = create(:hotspot)
     visit root_path
     expect(page).to have_css 'li', :text => mine.name
@@ -38,7 +38,7 @@ feature 'Hotspot pages' do
   end
 
   scenario 'Go to Hotspot page from dashboard' do
-    hotspot = create(:hotspot, :name => 'abcd', :user => user)
+    hotspot = user.hotspots.create(:name => 'abcd', :category => 'Education')
     visit root_path
     click_link 'abcd'
     expect(page).to have_css '[data-role="page-title"]', :text => 'abcd'

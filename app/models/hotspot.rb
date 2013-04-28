@@ -35,6 +35,9 @@ class Hotspot < ActiveRecord::Base
 
   has_many :landings
 
+  has_many :editorships, :as => :editable
+  has_many :users, :through => :editorships
+
   accepts_nested_attributes_for :address
 end
 

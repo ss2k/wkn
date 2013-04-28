@@ -25,5 +25,8 @@ describe Hotspot do
   it { should have_one(:address).dependent(:destroy) }
 
   it { should accept_nested_attributes_for(:address) }
+
+  it { should have_many(:editorships) }
+  it { should have_many(:users).through(:editorships) }
 end
 

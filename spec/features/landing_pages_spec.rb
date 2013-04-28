@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Landing pages' do
   given!(:user) { create(:user) }
-  given!(:hotspot) { create(:hotspot, :user => user) }
+  given!(:hotspot) { user.hotspots.create(:name => 'abcd', :category => 'Education') }
 
   before do
     sign_in_as user

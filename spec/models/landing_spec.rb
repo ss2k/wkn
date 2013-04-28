@@ -13,5 +13,8 @@ describe Landing do
     create(:landing)
     should validate_uniqueness_of(:title).scoped_to(:hotspot_id).case_insensitive
   end
+
+  it { should have_many(:editorships) }
+  it { should have_many(:users).through(:editorships) }
 end
 
