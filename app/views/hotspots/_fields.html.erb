@@ -1,25 +1,7 @@
-<div class="control-group">
-  <%= f.label :name, 'Hotspot Name' %>
-  <div class="controls">
-    <%= f.text_field :name %>
-  </div>
-</div>
-
-<div class="control-group">
-  <%= f.label :category, 'Business Category' %>
-  <div class="controls">
-    <%= f.select :category, Hotspot::CATEGORIES %>
-  </div>
-</div>
-
-<%= f.fields_for :address do |builder| %>
+<%= f.input :name, :label => 'Hotspot Name' %>
+<%= f.input :category, :collection => Hotspot::CATEGORIES, :include_blank => false, :label => 'Business Category' %>
+<%= f.simple_fields_for :address do |builder| %>
   <%= render 'addresses/fields', :f => builder %>
 <% end %>
-
-<div class="control-group">
-  <div class="controls">
-    <%= f.check_box :terms_of_service %>
-    <%= f.label :terms_of_service, 'Accept Hotspot Terms and Conditions', :class => 'checkbox inline' %>
-  </div>
-</div>
+<%= f.input :terms_of_service, :as => :boolean, :label => 'Accept Hotspot Terms and Conditions' %>
 

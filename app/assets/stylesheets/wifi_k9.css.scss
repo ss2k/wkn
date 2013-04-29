@@ -22,23 +22,6 @@ body {
   }
 }
 
-#error_explanation {
-  color: #f00;
-
-  h2 {
-    font-size: 1.25em;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
-}
-
-.form-horizontal label {
-  @extend .control-label
-}
-
 .create_description, .not_current_user {
   margin-bottom: 2em;
 }

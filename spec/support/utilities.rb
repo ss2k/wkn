@@ -25,11 +25,11 @@ def complete_hotspot_form_with hotspot_name
   click_link 'Create a Hotspot'
   fill_in 'Hotspot Name', :with => hotspot_name
   page.select 'Food & Dining', :from => 'Business Category'
-  fill_in 'Address 1', :with => '26 Broadway'
+  fill_in 'Address1', :with => '26 Broadway'
   fill_in 'City', :with => 'New York City'
   fill_in 'State', :with => 'NY'
-  fill_in 'Zip', :with => '10004'
-  fill_in 'Country', :with => 'USA'
+  fill_in 'Postal code', :with => '10004'
+  page.select 'United States', :from => 'Country'
   page.check 'Accept Hotspot Terms and Conditions'
 end
 

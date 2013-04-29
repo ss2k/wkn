@@ -1,15 +1,9 @@
 <% content_for :page_title, 'Create Landing Page' %>
 
-<%= form_for [@hotspot, @landing], :url => hotspot_landings_path do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title, :class => 'input-block-level' %>
-
-  <%= f.label :markup, 'Customization' %>
-  <%= f.text_area :markup, :class => 'tinymce' %>
-
-  <%= f.submit 'Create Landing Page', :class => 'btn pull-right' %>
+<%= simple_form_for [@hotspot, @landing], :url => hotspot_landings_path do |f| %>
+  <%= f.input :title, :class => 'input-block-level' %>
+  <%= f.input :markup, :input_html => { :class => 'tinymce' }, :label => 'Customization' %>
+  <%= f.button :submit, :class => 'btn pull-right' %>
 <% end %>
 
 <script src="/tinymce/tinymce.min.js"></script>

@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
+gem 'country_select', '~> 1.1.3'
 gem 'devise', '~> 2.2.3'
 gem 'jquery-rails'
 gem 'rails', '3.2.13'
+gem 'simple_form', '~> 2.1.0'
 gem 'pg'
 
 group :assets do
