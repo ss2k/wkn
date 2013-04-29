@@ -15,5 +15,13 @@ FactoryGirl.define do
     sequence(:title) { |n| "landing_#{n}" }
     hotspot
   end
+
+  factory :editorship do
+    user
+
+    factory :hotspot_editorship do
+      association :editable, :factory => :hotspot
+    end
+  end
 end
 

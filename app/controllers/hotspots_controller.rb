@@ -1,7 +1,7 @@
 class HotspotsController < ApplicationController
   def create
-    @hotspot = current_user.hotspots.build params[:hotspot]
-    if @hotspot.save
+    @hotspot = current_user.hotspots.create params[:hotspot]
+    if @hotspot.id
       redirect_to @hotspot
     else
       render :new
@@ -18,7 +18,7 @@ class HotspotsController < ApplicationController
   end
 
   def show
-    @hotspot = Hotspot.find params[:id]
+    @hotspot = current_user.hotspots.find params[:id]
   end
 end
 

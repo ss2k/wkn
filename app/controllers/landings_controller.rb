@@ -1,6 +1,6 @@
 class LandingsController < ApplicationController
   def create
-    @hotspot = Hotspot.find params[:hotspot_id]
+    @hotspot = current_user.hotspots.find params[:hotspot_id]
     @landing = @hotspot.landings.build params[:landing]
     if @landing.save
       redirect_to @hotspot
@@ -10,7 +10,7 @@ class LandingsController < ApplicationController
   end
 
   def new
-    @hotspot = Hotspot.find params[:hotspot_id]
+    @hotspot = current_user.hotspots.find params[:hotspot_id]
     @landing = @hotspot.landings.new
   end
 end
