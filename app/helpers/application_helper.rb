@@ -1,6 +1,6 @@
 module ApplicationHelper
   def viewable_flash
-    flash.to_hash.slice(:notice, :alert)
+    flash.to_hash.slice(:notice, :alert, :error)
   end
 
   def full_title page_title = ''

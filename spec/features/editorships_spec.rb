@@ -18,5 +18,14 @@ feature 'Editorships' do
     complete_hotspot_form
     expect(page).not_to have_css '.editor', :text => not_an_editor.email
   end
+
+  scenario 'Add an existing user as an editor' do
+    another = create(:user)
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    fill_in :editorship_user_email, :with => another.email
+    click_button 'Add'
+    expect(page).to have_css '.editor', :text => another.email
+  end
 end
 

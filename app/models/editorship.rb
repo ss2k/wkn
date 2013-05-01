@@ -1,4 +1,6 @@
 class Editorship < ActiveRecord::Base
+  attr_accessible :user_id
+
   belongs_to :user, :validate => true
   belongs_to :hotspot, :validate => true
 

@@ -14,12 +14,16 @@
     </div>
   </div>
   <div class="span4">
-    <h4>Editors</h4>
+    <h3>Editors</h3>
     <ul>
       <% @hotspot.users.each do |editor| %>
         <li class="editor"><%= editor.email %></li>
       <% end %>
     </ul>
+    <%= simple_form_for :editorship, :url => editorships_path(:hotspot_id => @hotspot.id) do |f| %>
+      <%= f.input :user_email, :label => false, :placeholder => 'Invite By Email' %>
+      <%= f.button :submit, 'Add' %>
+    <% end %>
   </div>
 </div>
 
