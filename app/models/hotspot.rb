@@ -29,13 +29,10 @@ class Hotspot < ActiveRecord::Base
   validates :name, :category, :group, :length => { :maximum => 128 }
   validates :terms_of_service, :acceptance => true
 
-  belongs_to :user
-
   has_one :address, :as => :addressable, :dependent => :destroy
 
   has_many :landings
-
-  has_many :editorships, :as => :editable
+  has_many :editorships
   has_many :users, :through => :editorships
 
   accepts_nested_attributes_for :address

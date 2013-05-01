@@ -3,9 +3,6 @@ class Landing < ActiveRecord::Base
 
   belongs_to :hotspot, :validate => true
 
-  has_many :editorships, :as => :editable
-  has_many :users, :through => :editorships
-
   validates :title, :presence => true, :uniqueness => {
     :case_sensitive => false,
     :scope => :hotspot_id

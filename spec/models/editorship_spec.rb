@@ -2,14 +2,18 @@ require 'spec_helper'
 
 describe Editorship do
   it { should have_db_column(:user_id).of_type(:integer) }
-  it { should have_db_column(:editable_id).of_type(:integer) }
-  it { should have_db_column(:editable_type).of_type(:string) }
-  it { should have_db_index([:user_id, :editable_id, :editable_type]).unique(true) }
+  it { should have_db_column(:hotspot_id).of_type(:integer) }
+  it { should have_db_index([:user_id, :hotspot_id]).unique(true) }
 
   it { should belong_to(:user).validate }
-  it { should belong_to(:editable).validate }
+  it { should belong_to(:hotspot).validate }
 
-  it { should validate_presence_of(:user) }
-  it { should validate_presence_of(:editable) }
+  it { should validate_presence_of(:user_id) }
+  it { should validate_presence_of(:hotspot_id) }
+
+  it 'Validates unique user scoped to hotspot' do
+    create(:editorship)
+    should validate_uniqueness_of(:user_id).scoped_to(:hotspot_id)
+  end
 end
 

@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :user do
     sequence(:email) { |n| "user_#{n}@example.com" }
     password 'password1234'
@@ -18,10 +17,7 @@ FactoryGirl.define do
 
   factory :editorship do
     user
-
-    factory :hotspot_editorship do
-      association :editable, :factory => :hotspot
-    end
+    hotspot
   end
 end
 
