@@ -36,5 +36,13 @@ class Hotspot < ActiveRecord::Base
   has_many :users, :through => :editorships
 
   accepts_nested_attributes_for :address
+
+  def landing
+    @landing || landings.first
+  end
+
+  def publish! landing
+    @landing = landing
+  end
 end
 

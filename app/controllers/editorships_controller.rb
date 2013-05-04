@@ -1,6 +1,6 @@
 class EditorshipsController < ApplicationController
   def create
-    @hotspot = Hotspot.find params[:hotspot_id]
+    @hotspot = current_user.hotspots.find params[:hotspot_id]
     user = find_user
     if user
       if @hotspot.users.include? user

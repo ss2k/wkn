@@ -43,5 +43,14 @@ feature 'Hotspot pages' do
     click_link 'abcd'
     expect(page).to have_css '[data-role="page-title"]', :text => 'abcd'
   end
+
+  scenario 'Publish the first landing page by default' do
+    hotspot = user.hotspots.create(:name => 'efgh', :category => 'Education')
+    landing = hotspot.landings.create(:title => 'foo', :markup => '<ul><li>abcd</li><li>efgh</li></ul>')
+    landing.save!
+    visit "/#{hotspot.name}"
+    expect(page).to have_css 'ul li', :text => 'abcd'
+    expect(page).to have_css 'ul li', :text => 'efgh'
+  end
 end
 

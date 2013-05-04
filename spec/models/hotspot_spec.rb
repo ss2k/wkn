@@ -28,5 +28,26 @@ describe Hotspot do
 
   it { should have_many(:editorships) }
   it { should have_many(:users).through(:editorships) }
+
+  describe '#landing' do
+    subject { create(:hotspot) }
+
+    describe 'Hotspot with one landing' do
+      let!(:only_landing) { subject.landings.create :title => 'abcd' }
+      its(:landing) { should eq only_landing }
+    end
+
+    describe 'With a sibling landing page' do
+      let!(:first) { subject.landings.create :title => 'efgh' }
+      let!(:second) { subject.landings.create :title => 'efgh' }
+      let!(:third) { subject.landings.create :title => 'ijkl' }
+      its(:landing) { should eq first }
+
+      describe 'When a landing page is explicitly published' do
+        before { subject.publish!(third) }
+        its(:landing) { should eq third }
+      end
+    end
+  end
 end
 

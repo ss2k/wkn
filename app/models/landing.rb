@@ -8,3 +8,4 @@ class Landing < ActiveRecord::Base
     :scope => :hotspot_id
   }
 end
+

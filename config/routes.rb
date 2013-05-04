@@ -7,5 +7,7 @@ WifiK9::Application.routes.draw do
 
   devise_for :users
   root :to => 'hotspots#index'
+
+  match '/:publication', :to => 'publications#show'
 end
 
