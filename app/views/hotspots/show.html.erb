@@ -3,27 +3,12 @@
 <div class="row">
   <div class="span8">
     <h3>Landing Pages</h3>
-    <% @hotspot.landings.each do |landing| %>
-      <div class="landing container">
-        <h4 class="landing-title"><%= landing.title %></h4>
-        <div class="container landing-markup"><%= landing.markup.html_safe %></div>
-      </div>
-    <% end %>
-    <div class="container">
-      <%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %>
-    </div>
+    <%= render @hotspot.landings %>
+    <%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %>
   </div>
   <div class="span4">
-    <h3>Editors</h3>
-    <ul>
-      <% @hotspot.users.each do |editor| %>
-        <li class="editor"><%= editor.email %></li>
-      <% end %>
-    </ul>
-    <%= simple_form_for :editorship, :url => editorships_path(:hotspot_id => @hotspot.id) do |f| %>
-      <%= f.input :user_email, :label => false, :placeholder => 'Invite By Email' %>
-      <%= f.button :submit, 'Add' %>
-    <% end %>
+    <%= render 'hotspots/editors', :editors => @hotspot.users %>
+    <%= render 'hotspots/editorships_form' %>
   </div>
 </div>
 

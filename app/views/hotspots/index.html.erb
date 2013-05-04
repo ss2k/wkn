@@ -1,9 +1,6 @@
 <% content_for :page_title, 'Hotspots' %>
 
-<ul>
-  <% @hotspots.each do |hotspot| %>
-    <li><%= link_to hotspot.name, hotspot_path(hotspot) %></li>
-  <% end %>
-</ul>
+<ul><%= render @hotspots %></ul>
+
 <%= link_to 'Create a Hotspot', new_hotspot_path %>
 

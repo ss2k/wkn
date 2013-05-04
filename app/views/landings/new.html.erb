@@ -1,23 +1,4 @@
 <% content_for :page_title, 'Create Landing Page' %>
 
-<%= simple_form_for [@hotspot, @landing], :url => hotspot_landings_path do |f| %>
-  <%= f.input :title, :class => 'input-block-level' %>
-  <%= f.input :markup, :input_html => { :class => 'tinymce' }, :label => 'Customization' %>
-  <%= f.button :submit, :class => 'btn pull-right' %>
-<% end %>
-
-<script src="/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-tinymce.init({
-  selector: "textarea",
-  theme: "modern",
-  plugins: [
-    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-    "searchreplace wordcount visualblocks visualchars code fullscreen",
-    "insertdatetime media nonbreaking save table contextmenu directionality",
-    "emoticons template paste"
-  ],
-  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image print preview media | forecolor backcolor emoticons"
-});
-</script>
+<%= render 'landings/form' %>
 
