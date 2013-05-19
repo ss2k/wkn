@@ -1,0 +1,7 @@
+<%= simple_form_for [@hotspot, @editorship], :url => hotspot_editorships_path do |f| %>
+  <%= f.simple_fields_for :users do |user| %>
+    <%= user.input :email %>
+  <% end %>
+  <%= f.button :submit, 'Add' %>
+<% end %>
+

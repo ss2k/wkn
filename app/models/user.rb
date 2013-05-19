@@ -9,5 +9,9 @@ class User < ActiveRecord::Base
   has_one :address, :as => :addressable
 
   accepts_nested_attributes_for :address, :reject_if => :all_blank
+
+  def admin?(hotspot)
+    editorships.where(:admin => true, :hotspot_id => hotspot).any?
+  end
 end
 

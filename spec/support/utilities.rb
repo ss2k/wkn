@@ -28,7 +28,7 @@ def complete_hotspot_form_with hotspot_name
   fill_in 'Address1', :with => '26 Broadway'
   fill_in 'City', :with => 'New York City'
   fill_in 'State', :with => 'NY'
-  fill_in 'Postal code', :with => '10004'
+  fill_in 'Postal code', :with => '10005'
   page.select 'United States', :from => 'Country'
   page.check 'Accept Hotspot Terms and Conditions'
 end

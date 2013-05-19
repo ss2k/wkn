@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501004059) do
+ActiveRecord::Schema.define(:version => 20130513110817) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1",         :null => false
@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(:version => 20130501004059) do
   add_index "addresses", ["state"], :name => "index_addresses_on_state"
 
   create_table "editorships", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "hotspot_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "hotspot_id",                    :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "admin",      :default => false, :null => false
   end
 
   add_index "editorships", ["user_id", "hotspot_id"], :name => "index_editorships_on_user_id_and_hotspot_id", :unique => true

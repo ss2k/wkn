@@ -1,0 +1,15 @@
+<ul>
+  <% @hotspot.users.each do |editor| %>
+    <% unless current_user == editor %>
+      <%= content_tag :li, :class => editor.admin?(@hotspot) ? 'editor admin' : 'editor' do %>
+        <%= editor.email %>
+        <% editorship = @hotspot.editorships.find_by_user_id(editor.id) %>
+        <%= link_to 'Remove', hotspot_editorship_path(@hotspot, editorship), :method => :delete %>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+<%= render 'editorships/form' %>
+
+<%= link_to 'Back', hotspot_path(@hotspot) %>
+

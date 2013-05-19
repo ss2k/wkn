@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Editorship do
   it { should have_db_column(:user_id).of_type(:integer) }
   it { should have_db_column(:hotspot_id).of_type(:integer) }
+  it { should have_db_column(:admin).of_type(:boolean).with_options(:default => false) }
   it { should have_db_index([:user_id, :hotspot_id]).unique(true) }
 
   it { should belong_to(:user).validate }

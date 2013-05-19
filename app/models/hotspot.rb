@@ -44,5 +44,20 @@ class Hotspot < ActiveRecord::Base
   def publish! landing
     @landing = landing
   end
+
+  def make_admin!(user)
+    editorship = editorships.where(:user_id => user).first
+    editorship.admin = true
+    editorship.save!
+  end
+
+  def remove_editor!(user_id)
+    editorship = editorships.where(:user_id => user_id).first
+    editorships.destroy editorship
+  end
+
+  def admins
+    editorships.select(&:admin).map(&:user)
+  end
 end
 

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-feature 'Hotspot pages' do
-  given(:user) { create(:user) }
+feature 'Hotspot pages' do given(:user) { create(:user) }
 
   background do
     sign_in_as user
@@ -51,6 +50,44 @@ feature 'Hotspot pages' do
     visit "/#{hotspot.name}"
     expect(page).to have_css 'ul li', :text => 'abcd'
     expect(page).to have_css 'ul li', :text => 'efgh'
+  end
+
+  scenario 'Hotspot creator is automatically an editor' do
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    expect(page).to have_css '.editor', :text => user.email
+  end
+
+  scenario 'Hotspot creator is admin by default' do
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    expect(page).to have_css '.admin', :text => user.email
+  end
+
+  scenario 'A non editor is not listed in the list of editors' do
+    not_an_editor = create(:user)
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    expect(page).not_to have_css '.editor', :text => not_an_editor.email
+  end
+
+  scenario 'Leave the hotspot' do
+    another = create(:user)
+    hotspot = user.hotspots.create(attributes_for(:hotspot))
+    hotspot.editorships.create! :user_id => another.id
+
+    hotspot.make_admin!(user.id)
+    hotspot.make_admin!(another.id)
+    visit hotspot_path(hotspot)
+
+    click_link 'Leave this Hotspot'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'Hotspots'
+  end
+
+  scenario 'Can not leave hotspot if no other admins exist' do
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    expect(page).not_to have_css 'a', :text => 'Leave this Hotspot'
   end
 end
 

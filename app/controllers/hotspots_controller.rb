@@ -2,6 +2,7 @@ class HotspotsController < ApplicationController
   def create
     @hotspot = current_user.hotspots.create params[:hotspot]
     if @hotspot.id
+      @hotspot.make_admin!(current_user)
       redirect_to @hotspot
     else
       render :new
@@ -19,6 +20,7 @@ class HotspotsController < ApplicationController
 
   def show
     @hotspot = current_user.hotspots.find params[:id]
+    @editorship = current_user.editorships.find_by_hotspot_id(@hotspot.id)
   end
 end
 
