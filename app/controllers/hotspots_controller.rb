@@ -9,6 +9,10 @@ class HotspotsController < ApplicationController
     end
   end
 
+  def edit
+    @hotspot = current_user.hotspots.find params[:id]
+  end
+
   def index
     @hotspots = current_user.hotspots
   end
@@ -21,6 +25,15 @@ class HotspotsController < ApplicationController
   def show
     @hotspot = current_user.hotspots.find params[:id]
     @editorship = current_user.editorships.find_by_hotspot_id(@hotspot.id)
+  end
+
+  def update
+    @hotspot = current_user.hotspots.find params[:id]
+    if @hotspot.update_attributes params[:hotspot]
+      redirect_to @hotspot
+    else
+      render :edit
+    end
   end
 end
 

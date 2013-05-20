@@ -89,5 +89,17 @@ feature 'Hotspot pages' do given(:user) { create(:user) }
     click_button 'Create Hotspot'
     expect(page).not_to have_css 'a', :text => 'Leave this Hotspot'
   end
+
+  scenario 'Edit the Hotspot' do
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    within('.hotspot_menu') do
+      click_link 'Edit'
+    end
+    fill_in 'Hotspot Name', :with => 'ABCD'
+    page.check 'Accept Hotspot Terms and Conditions'
+    click_button 'Update Hotspot'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'ABCD'
+  end
 end
 
