@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature 'Hotspot pages' do given(:user) { create(:user) }
-
   background do
     sign_in_as user
   end
@@ -100,6 +99,13 @@ feature 'Hotspot pages' do given(:user) { create(:user) }
     page.check 'Accept Hotspot Terms and Conditions'
     click_button 'Update Hotspot'
     expect(page).to have_css '[data-role="page-title"]', :text => 'ABCD'
+  end
+
+  scenario 'Delete hotspot' do
+    complete_hotspot_form
+    click_button 'Create Hotspot'
+    click_link 'Delete'
+    expect(page).to have_css '[data-role="page-title"]', :text => 'Hotspots'
   end
 end
 

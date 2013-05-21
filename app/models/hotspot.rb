@@ -31,8 +31,8 @@ class Hotspot < ActiveRecord::Base
 
   has_one :address, :as => :addressable, :dependent => :destroy
 
-  has_many :landings
-  has_many :editorships
+  has_many :landings, :dependent => :destroy
+  has_many :editorships, :dependent => :destroy
   has_many :users, :through => :editorships
 
   accepts_nested_attributes_for :address

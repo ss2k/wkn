@@ -1,10 +1,11 @@
 <%= content_for :page_title, @hotspot.name %>
 
+<%= render 'hotspots/menu', :hotspot => @hotspot, :editorship => @editorship %>
 <div class="row">
   <div class="span8">
     <h3>Landing Pages</h3>
+    <%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %>
     <%= render @hotspot.landings %>
-    <%= render 'hotspots/menu', :hotspot => @hotspot, :editorship => @editorship %>
   </div>
   <div class="span4">
     <h3>Editors</h3>

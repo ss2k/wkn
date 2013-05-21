@@ -13,6 +13,12 @@ class HotspotsController < ApplicationController
     @hotspot = current_user.hotspots.find params[:id]
   end
 
+  def destroy
+    @hotspot = current_user.hotspots.find params[:id]
+    @hotspot.destroy
+    redirect_to root_path
+  end
+
   def index
     @hotspots = current_user.hotspots
   end
