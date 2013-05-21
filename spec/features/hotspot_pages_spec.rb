@@ -93,7 +93,7 @@ feature 'Hotspot pages' do given(:user) { create(:user) }
   scenario 'Edit the Hotspot' do
     complete_hotspot_form
     click_button 'Create Hotspot'
-    within('.hotspot_menu') do
+    within('.hotspots_menu') do
       click_link 'Edit'
     end
     fill_in 'Hotspot Name', :with => 'ABCD'

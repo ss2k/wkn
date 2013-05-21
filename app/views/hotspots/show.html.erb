@@ -4,19 +4,11 @@
   <div class="span8">
     <h3>Landing Pages</h3>
     <%= render @hotspot.landings %>
-    <ul class="hotspot_menu">
-      <li><%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %></li>
-      <% if current_user.admin?(@hotspot) %>
-        <li><%= link_to 'Edit', edit_hotspot_path(@hotspot) %></li>
-      <% end %>
-      <% if 1 < @hotspot.admins.count %>
-        <li><%= link_to 'Leave this Hotspot', hotspot_editorship_path(@hotspot, @editorship), :method => :delete %></li>
-      <% end %>
-    </ul>
+    <%= render 'hotspots/menu', :hotspot => @hotspot, :editorship => @editorship %>
   </div>
   <div class="span4">
+    <h3>Editors</h3>
     <%= render 'hotspots/editors', :hotspot => @hotspot %>
-    <div><%= link_to 'Manage Editors', hotspot_editorships_path(@hotspot) %></div>
   </div>
 </div>
 
