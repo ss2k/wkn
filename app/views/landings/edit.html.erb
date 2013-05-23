@@ -1,0 +1,6 @@
+<% content_for :page_title, 'Edit Landing Page' %>
+
+<%= render 'landings/form', :url => hotspot_landing_path(@hotspot, @landing) %>
+
+<%= link_to 'Back', hotspot_path(@hotspot) %>
+

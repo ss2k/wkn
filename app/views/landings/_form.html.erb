@@ -1,4 +1,4 @@
-<%= simple_form_for [@hotspot, @landing], :url => hotspot_landings_path do |f| %>
+<%= simple_form_for [@hotspot, @landing], :url => url do |f| %>
   <%= f.input :title, :class => 'input-block-level' %>
   <%= f.input :markup, :input_html => { :class => 'tinymce' }, :label => 'Customization' %>
   <%= f.button :submit, :class => 'btn pull-right' %>

@@ -1,5 +1,8 @@
 <div class="landing">
   <h4 class="landing-title"><%= landing.title %></h4>
+  <ul>
+    <li><%= link_to 'Edit', edit_hotspot_landing_path(@hotspot, landing) %></li>
+  </ul>
   <div class="landing-markup"><%= landing.markup.html_safe %></div>
 </div>
 
