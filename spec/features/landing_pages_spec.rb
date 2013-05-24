@@ -34,6 +34,15 @@ feature 'Landing pages' do
     expect(page).to have_css '.landing-markup', :text => 'Abracadabra'
   end
 
+  scenario 'Delete landing page' do
+    create_landing_page_with 'ABCDEFG', '<p>OMG LOL</p>'
+    within('.landing') do
+      click_link 'Delete'
+    end
+    expect(page).not_to have_css '.landing-title', :text => 'ABCDFG'
+    expect(page).not_to have_css '.landing-markup', :text => 'OMG LOL'
+  end
+
   def create_landing_page
     create_landing_page_with 'Main Landing Page', '<p>Hello</p>'
   end

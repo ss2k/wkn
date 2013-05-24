@@ -9,6 +9,13 @@ class LandingsController < ApplicationController
     end
   end
 
+  def destroy
+    @hotspot = find_hotspot
+    @landing = @hotspot.landings.find params[:id]
+    @landing.destroy
+    redirect_to @hotspot
+  end
+
   def edit
     @hotspot = find_hotspot
     @landing = @hotspot.landings.find params[:id]

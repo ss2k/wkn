@@ -2,6 +2,7 @@
   <h4 class="landing-title"><%= landing.title %></h4>
   <ul>
     <li><%= link_to 'Edit', edit_hotspot_landing_path(@hotspot, landing) %></li>
+    <li><%= link_to 'Delete', hotspot_landing_path(@hotspot, landing), :method => :delete, :confirm => 'Are you sure you want to delete this landing page? This action is permanent and can not be undone.' %></li>
   </ul>
   <div class="landing-markup"><%= landing.markup.html_safe %></div>
 </div>
