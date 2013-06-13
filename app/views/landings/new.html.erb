@@ -1,6 +1,9 @@
+<% if @hotspot.landings.exists? %>
+<% flash[:error] = "You already have a landing page. You are only allowed one per hotspot." %>
+<% else %>
 <% content_for :page_title, 'Create Landing Page' %>
 
 <%= render 'landings/form', :url => hotspot_landings_path %>
-
+<% end %>
 <%= link_to 'Back', hotspot_path(@hotspot) %>
 

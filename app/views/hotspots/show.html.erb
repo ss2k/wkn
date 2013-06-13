@@ -4,8 +4,11 @@
 <div class="row">
   <div class="span8">
     <h3>Landing Pages</h3>
-    <%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %>
-    <%= render @hotspot.landings %>
+    <% if @hotspot.landings.empty? %> <!-- This checks if there are existing landing pages. Right now we only allow 1 per hotspot -->
+     <%= link_to 'Create a Landing Page', new_hotspot_landing_path(@hotspot) %>
+    <% else %>
+     <%= render @hotspot.landings %>
+    <% end %>
   </div>
   <div class="span4">
     <h3>Editors</h3>

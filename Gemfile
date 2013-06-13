@@ -17,6 +17,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 2.0.0'
+  gem 'annotate'
 end
 
 group :test do

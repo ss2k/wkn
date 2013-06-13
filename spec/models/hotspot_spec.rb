@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: hotspots
+#
+#  id         :integer          not null, primary key
+#  name       :string(128)      not null
+#  group      :string(128)
+#  category   :string(128)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Hotspot do

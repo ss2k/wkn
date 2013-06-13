@@ -1,1 +1,1 @@
-WifiK9::Application.config.secret_token = ENV['WIFI_K9_SECRET_TOKEN']
+WifiK9::Application.config.secret_token = 'bfe6b697b9677857100c3c709144170120d0c0497a0cacc46664e91a766abff3b69138bc58b0d3daad6d73c66684d9212a41dc03d61ae2fb07573f4d44dbc1d6'

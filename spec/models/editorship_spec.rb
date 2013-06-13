@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: editorships
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  hotspot_id :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  admin      :boolean          default(FALSE), not null
+#
+
 require 'spec_helper'
 
 describe Editorship do
