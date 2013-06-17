@@ -33,6 +33,13 @@ class HotspotsController < ApplicationController
     @editorship = current_user.editorships.find_by_hotspot_id(@hotspot.id)
   end
 
+  def display
+    #@hotspot = current_user.hotspots.find(params[:id])
+    @hotspot = current_user.hotspots.where(name: params[:id]).first
+    @landing = @hotspot.landings.first
+    #@landing = current_user.hotspots.landing
+  end
+
   def update
     @hotspot = current_user.hotspots.find params[:id]
     if @hotspot.update_attributes params[:hotspot]

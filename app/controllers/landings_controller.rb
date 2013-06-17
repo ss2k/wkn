@@ -37,6 +37,11 @@ class LandingsController < ApplicationController
     end
   end
 
+  def show
+    @hotspot = find_hotspot
+    @landing = @hotspot.landings.find(params[:id])
+  end
+
   private
 
   def find_hotspot
