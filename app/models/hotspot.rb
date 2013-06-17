@@ -37,6 +37,7 @@ class Hotspot < ActiveRecord::Base
 
   validates :category, :inclusion => { :in => CATEGORIES }
   validates :name, :uniqueness => { :case_sensitive => false }
+  validates :name, :format => { with: /^[a-zA-Z0-9_-]+$/, message: "Only letters, numbers, _ and - allowed."}
   validates :name, :category, :presence => true
   validates :name, :category, :group, :length => { :maximum => 128 }
   validates :terms_of_service, :acceptance => true
