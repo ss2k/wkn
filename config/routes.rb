@@ -1,4 +1,9 @@
 WifiK9::Application.routes.draw do
+  get "dashboard/index"
+
+  namespace :admin do
+    root :to => 'dashboard#index'
+  end
   resources :hotspots do
     resources :editorships, :only => [:create, :destroy, :index]
     resources :landings, :only => [:create, :destroy, :edit, :new, :update, :show]

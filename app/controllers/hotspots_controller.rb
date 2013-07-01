@@ -37,6 +37,10 @@ class HotspotsController < ApplicationController
     #@hotspot = current_user.hotspots.find(params[:id])
     @hotspot = current_user.hotspots.where(name: params[:id]).first
     @landing = @hotspot.landings.first
+    if @landing.nil?
+      redirect_to root_url
+      flash[:error] = "No Hotspot Page Found"
+    end
     #@landing = current_user.hotspots.landing
   end
 
