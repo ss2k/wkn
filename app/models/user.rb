@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :address, :reject_if => :all_blank
 
 
-  #def admin?(hotspot)
-   # editorships.where(:admin => true, :hotspot_id => hotspot).any?
-  #end
+  def eadmin?(hotspot)
+    editorships.where(:admin => true, :hotspot_id => hotspot).any?
+  end
 end
 

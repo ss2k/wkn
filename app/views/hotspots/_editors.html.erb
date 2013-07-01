@@ -1,6 +1,6 @@
 <ul>
   <% hotspot.users.each do |editor| %>
-    <%= content_tag :li, editor.email, :class => editor.admin?(hotspot) ? 'editor admin' : 'editor' %>
+    <%= content_tag :li, editor.email, :class => editor.eadmin?(hotspot) ? 'editor admin' : 'editor' %>
   <% end %>
 </ul>
 <%= link_to 'Manage Editors', hotspot_editorships_path(hotspot) %>

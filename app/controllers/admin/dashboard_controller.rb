@@ -11,7 +11,8 @@ class Admin::DashboardController < ApplicationController
 
   def check_admin
     if current_user.admin?
-      return true
+      flash[:success] = "Here is your dashboard"
+      #return true
     else
       redirect_to root_path
       flash[:error] = "You must be an admin to access this area."

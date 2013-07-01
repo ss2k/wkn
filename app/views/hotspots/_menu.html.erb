@@ -1,5 +1,5 @@
 <ul class="hotspots_menu">
-  <% if current_user.admin?(hotspot) %>
+  <% if current_user.eadmin?(hotspot) %>
     <li><%= link_to 'Edit', edit_hotspot_path(hotspot) %></li>
     <li><%= link_to 'Delete', hotspot_path(hotspot), :method => :delete, :confirm => 'Are you sure you want to delete this Hotspot? All landing pages will be deleted and dissociate all editors. This action is permanent and can not be undone.' %></li>
   <% end %>
