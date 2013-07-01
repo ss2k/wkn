@@ -1,4 +1,6 @@
 class LandingsController < ApplicationController
+  impressionist
+  
   def create
     @hotspot = find_hotspot
     @landing = @hotspot.landings.build params[:landing]

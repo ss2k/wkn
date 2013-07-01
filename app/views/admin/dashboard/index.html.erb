@@ -62,7 +62,13 @@
                                                 <td><%= user.id %></td>
                                                 <td><%= user.email %></td>
                                                 <td><%= user.hotspots.count %></td>
-                                                <td>?</td>
+                                                <td>
+                                                  <% if user.suspended? %>
+                                                  <%= button_to "Un-Suspend", suspension_path(user.id), { class: 'btn btn-small', id: "suspend_#{user.id}", remote: true }%>
+                                                  <% else %>
+                                                  <%= button_to "Suspend", suspension_path(user.id) ,{ class: 'btn btn-small', id: "suspend_#{user.id}", remote: true} %>
+                                                  <% end %>
+                                                </td>
                                             </tr>
                                           <% end %>
                                         </tbody>

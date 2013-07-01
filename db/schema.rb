@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701001115) do
+ActiveRecord::Schema.define(:version => 20130701050615) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1",         :null => false
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(:version => 20130701001115) do
 
   add_index "landings", ["hotspot_id", "title"], :name => "index_landings_on_hotspot_id_and_title", :unique => true
 
+  create_table "tickets", :force => true do |t|
+    t.string   "subject"
+    t.text     "description"
+    t.string   "category"
+    t.string   "user_id"
+    t.boolean  "resolved"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
@@ -105,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20130701001115) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
+    t.boolean  "suspended",              :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

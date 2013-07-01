@@ -1,0 +1,7 @@
+$(document).ready(function(){
+    <% if @user.suspended? %>
+      $("#suspend_<%= @user.id %>").text("Un-Suspend");
+    <% else %>
+      $("#suspend_<%= @user.id %>").text("Suspend");
+    <% end %>
+});

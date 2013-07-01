@@ -11,6 +11,8 @@
 #
 
 class Hotspot < ActiveRecord::Base
+  is_impressionable
+
   CATEGORIES = [
     'Arts & Entertainment',
     'Home & Garden',
