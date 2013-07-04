@@ -1,0 +1,6 @@
+<h1>Create a new ticket</h1>
+<%= simple_form_for [@user, @ticket] do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,4 +1,6 @@
 class HotspotsController < ApplicationController
+  before_filter :check_if_suspended, :except => :display
+
   def create
     @hotspot = current_user.hotspots.create params[:hotspot]
     if @hotspot.id
@@ -35,7 +37,7 @@ class HotspotsController < ApplicationController
 
   def display
     #@hotspot = current_user.hotspots.find(params[:id])
-    @hotspot = current_user.hotspots.where(name: params[:id]).first
+    @hotspot = Hotspot.where(name: params[:id]).first
     @landing = @hotspot.landings.first
     if @landing.nil?
       redirect_to root_url
@@ -50,6 +52,17 @@ class HotspotsController < ApplicationController
       redirect_to @hotspot
     else
       render :edit
+    end
+  end
+
+  private 
+  def check_if_suspended #This checks if a user is suspended or not before proceeding
+    if current_user.try(:suspended?) #Do not want to cause an error incase there is no user
+      sign_out current_user
+      redirect_to new_user_session_path
+      flash[:error] = "Your account has been suspended"
+    elsif current_user.nil? #if there is no user, redirect to sign in
+      redirect_to new_user_session_path
     end
   end
 end

@@ -11,7 +11,8 @@
 #
 
 class Landing < ActiveRecord::Base
-  attr_accessible :markup, :title
+  attr_accessible :markup, :title, :impressionable_type, :impressionable_id, :controller_name, :action_name, :user_id, :request_hash, :session_hash, :ip_address, :referrer
+
 
   belongs_to :hotspot, :validate => true
 

@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'simple_form', '~> 2.1.0'
 gem 'pg'
 gem 'impressionist' #stats gem
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

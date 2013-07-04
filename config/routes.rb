@@ -11,7 +11,11 @@ WifiK9::Application.routes.draw do
     resources :landings, :only => [:create, :destroy, :edit, :new, :update, :show]
   end
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+  
+  resources :users do
+    resources :tickets
+  end
   root :to => 'hotspots#index'
 
   match 'suspension/:id', :to => 'admin/dashboard#suspend_user', :as => 'suspension'

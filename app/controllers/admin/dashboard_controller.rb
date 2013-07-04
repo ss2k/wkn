@@ -4,7 +4,9 @@ class Admin::DashboardController < ApplicationController
 
   def index
     @admin = current_user
-    @users = User.all
+    @users = User.limit(5)
+    @hotspots = Hotspot.limit(5)
+    @landings = Landing.limit(5)
   end
 
   def suspend_user

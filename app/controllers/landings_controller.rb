@@ -1,5 +1,5 @@
 class LandingsController < ApplicationController
-  impressionist
+  #impressionist
   
   def create
     @hotspot = find_hotspot

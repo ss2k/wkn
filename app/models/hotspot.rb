@@ -35,7 +35,7 @@ class Hotspot < ActiveRecord::Base
     'Health & Medicine',
   ]
 
-  attr_accessible :category, :group, :name, :terms_of_service, :address_attributes
+  attr_accessible :category, :group, :name, :terms_of_service, :address_attributes, :impressionable_type, :impressionable_id, :controller_name, :action_name, :user_id, :request_hash, :session_hash, :ip_address, :referrer
 
   validates :category, :inclusion => { :in => CATEGORIES }
   validates :name, :uniqueness => { :case_sensitive => false }

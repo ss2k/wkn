@@ -1,5 +1,5 @@
   <div class="row-fluid">
-                        <!-- block -->
+                        <!-- block 
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
                                 <div class="muted pull-left">Key Data</div>
@@ -81,8 +81,8 @@
                             <!-- block -->
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Orders</div>
-                                    <div class="pull-right"><span class="badge badge-info">752</span>
+                                    <div class="muted pull-left">Hotspots</div>
+                                    <div class="pull-right"><span class="badge badge-info"><%= Hotspot.count %></span>
 
                                     </div>
                                 </div>
@@ -91,30 +91,20 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Product</th>
+                                                <th>Hotspot</th>
                                                 <th>Date</th>
-                                                <th>Amount</th>
+                                                <th>User</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% @hotspots.each do |hotspot| %>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Coat</td>
-                                                <td>02/02/2013</td>
-                                                <td>$25.12</td>
+                                                <td><%= hotspot.id %></td>
+                                                <td><%= hotspot.name %></td>
+                                                <td><%= hotspot.created_at.strftime("%m/%d/%Y") %></td>
+                                                <td><%= hotspot.editorships.first.user.email %></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacket</td>
-                                                <td>01/02/2013</td>
-                                                <td>$335.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Shoes</td>
-                                                <td>01/02/2013</td>
-                                                <td>$29.99</td>
-                                            </tr>
+                                            <% end %> 
                                         </tbody>
                                     </table>
                                 </div>
@@ -127,8 +117,8 @@
                             <!-- block -->
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Clients</div>
-                                    <div class="pull-right"><span class="badge badge-info">17</span>
+                                    <div class="muted pull-left">Landing Pages</div>
+                                    <div class="pull-right"><span class="badge badge-info"><%= Landing.count %></span>
 
                                     </div>
                                 </div>
@@ -137,30 +127,20 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>Landing</th>
+                                                <th>Date</th>
+                                                <th>Hotspot</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% @landings.each do |landing| %>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
+                                                <td><%= landing.id %></td>
+                                                <td><%= landing.title %></td>
+                                                <td><%= landing.created_at.strftime("%m/%d/%Y") %></td>
+                                                <td><%= landing.hotspot.name %></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Vincent</td>
-                                                <td>Gabriel</td>
-                                                <td>@gabrielva</td>
-                                            </tr>
+                                            <% end %>
                                         </tbody>
                                     </table>
                                 </div>
