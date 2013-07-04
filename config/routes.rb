@@ -22,6 +22,7 @@ WifiK9::Application.routes.draw do
   end
   root :to => 'hotspots#index'
 
+  match 'resolve/:id', :to=>'tickets#resolve_ticket', :as => 'resolve'
   match 'suspension/:id', :to => 'admin/dashboard#suspend_user', :as => 'suspension'
   match '/:id', :to => 'hotspots#display'
   match '/:publication', :to => 'publications#show'

@@ -10,6 +10,7 @@ gem 'pg'
 #gem 'impressionist' #stats gem
 gem 'sqlite3'
 gem 'pry'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

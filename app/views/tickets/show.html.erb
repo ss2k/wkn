@@ -50,3 +50,14 @@
     <%= f.submit class: 'btn btn-large' %>
   <% end %>
 </div>
+<!-- Resolve -->
+<% if @ticket.resolved? %>
+  <div class='row'>
+    <h3>Ticket has been resolved. You can <%= link_to " open ", new_user_ticket_path(@user, @ticket) %> a new ticket, if you still need more help.</h3>
+  </div>
+<% else %>
+  <div class='row'>
+    <h1>Resolve?</h1>
+    <%= button_to "Resolve", resolve_path(@ticket.id), class: 'btn btn-large' %>
+  </div>
+<% end %>

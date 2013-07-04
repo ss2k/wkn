@@ -1,4 +1,6 @@
 class ResponsesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def create
     @ticket = Ticket.find(params[:ticket_id])
     @response = @ticket.responses.build(params[:response])
