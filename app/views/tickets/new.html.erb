@@ -1,6 +1,6 @@
 <h1>Create a new ticket</h1>
 <%= simple_form_for [@user, @ticket] do |f| %>
-  <%= f.input :subject %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
+  <%= f.input :subject, input_html: { maxlength: 160 } %>
+  <%= f.input :description, input_html: { style: 'width: 100%', rows: 12 } %>
+  <%= f.button :submit, class: 'btn btn-large' %>
 <% end %>

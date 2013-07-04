@@ -8,7 +8,45 @@
 </div><!--end row-->
 <div class='row'>
   <div class='hero-unit'>
-    <%= debug current_user %>
     <%= @ticket.description %>
   </div>
+</div>
+<!-- responses -->
+<% if @submitted_responses %>
+  <div class='row'>
+    <div class='span6'>
+      <h1>Responses</h1>
+    </div>
+    <div class='span6'>
+      <h1><%= @submitted_responses.count %></h1>
+    </div>
+  </div>
+  <!-- response loop -->
+  <% @submitted_responses.each do |response| %>
+    <div class='row'>
+      <div class='hero-unit'>
+        <%= response.answer %>
+      </div>
+      <div class='row'>
+        <div class='span6'>
+          <% if response.user.admin? %>
+            <h3>Admin</h3>
+          <% else %>
+            <h3><%= response.user.email %></h3>
+          <% end %>
+        </div>
+        <div class='span6'>
+          <h3><%= response.created_at.strftime("%m/%d/%Y") %></h3>
+        </div>
+      </div>
+    </div>
+    <br />
+  <% end %> 
+<% end %>
+<!-- form response -->
+<div class='row'>
+  <%= simple_form_for [@ticket, Response.new] do |f| %>
+    <%= f.input :answer, input_html: { style: 'width: 100%', rows: 12 } %>
+    <%= f.submit class: 'btn btn-large' %>
+  <% end %>
 </div>

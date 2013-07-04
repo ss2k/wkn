@@ -11,7 +11,7 @@
 #
 
 class Hotspot < ActiveRecord::Base
-  is_impressionable
+  #is_impressionable
 
   CATEGORIES = [
     'Arts & Entertainment',

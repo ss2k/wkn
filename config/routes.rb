@@ -14,9 +14,11 @@ WifiK9::Application.routes.draw do
   devise_for :users, :path => 'accounts'
   
   resources :users do
-    resources :tickets do
-      resources :responses
-    end
+    resources :tickets 
+  end
+
+  resources :tickets do
+    resources :responses
   end
   root :to => 'hotspots#index'
 

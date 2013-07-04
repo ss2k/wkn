@@ -7,7 +7,7 @@ gem 'jquery-rails'
 gem 'rails', '3.2.13'
 gem 'simple_form', '~> 2.1.0'
 gem 'pg'
-gem 'impressionist' #stats gem
+#gem 'impressionist' #stats gem
 gem 'sqlite3'
 gem 'pry'
 group :assets do

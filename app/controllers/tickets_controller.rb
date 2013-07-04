@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_filter :authenticate_user!
-  #before_filter :authorize_user
+  before_filter :authorize_user
 
   def index
     @user = User.find(params[:user_id])
@@ -27,13 +27,13 @@ class TicketsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @ticket = @user.tickets.find(params[:id])
+    @submitted_responses = @ticket.responses if @ticket.responses.exists?
   end
 
   private
   
   def authorize_user  
-    binding.pry
-    if params[:user_id] == current_user.id || current_user.admin?
+    if params[:user_id].to_i == current_user.id || current_user.admin?
       return true
     else
       flash[:error] = "You are not authorized to view this page"
