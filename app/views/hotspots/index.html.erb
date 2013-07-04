@@ -5,4 +5,6 @@
 </ul>
 <%= link_to 'Create a Hotspot', new_hotspot_path %>
 <br />
+<%= link_to "View Tickets", user_tickets_path(current_user) %>
+<br />
 <%= link_to "Submit a Ticket", new_user_ticket_path(current_user) %>

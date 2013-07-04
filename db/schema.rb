@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704081952) do
+ActiveRecord::Schema.define(:version => 20130704081953) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1",         :null => false
@@ -86,6 +86,14 @@ ActiveRecord::Schema.define(:version => 20130704081952) do
   end
 
   add_index "landings", ["hotspot_id", "title"], :name => "index_landings_on_hotspot_id_and_title", :unique => true
+
+  create_table "responses", :force => true do |t|
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.text     "answer"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "tickets", :force => true do |t|
     t.string   "subject"

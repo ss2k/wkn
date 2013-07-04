@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class='span6'>
+    <h1><%= @ticket.subject %></h1>
+  </div>
+  <div class='span6'>
+    <h3><%= @ticket.created_at.strftime("%m/%y/%Y") %></h3>
+  </div>
+</div><!--end row-->
+<div class='row'>
+  <div class='hero-unit'>
+    <%= debug current_user %>
+    <%= @ticket.description %>
+  </div>
+</div>

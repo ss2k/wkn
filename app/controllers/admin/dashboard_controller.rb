@@ -7,6 +7,7 @@ class Admin::DashboardController < ApplicationController
     @users = User.limit(5)
     @hotspots = Hotspot.limit(5)
     @landings = Landing.limit(5)
+    @tickets = Ticket.order("created_at DESC").limit(5)
   end
 
   def suspend_user

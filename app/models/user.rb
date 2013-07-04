@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
   has_many :hotspots, :through => :editorships
   has_one :address, :as => :addressable
   has_many :tickets
-
+  has_many :responses
+  
   accepts_nested_attributes_for :address, :reject_if => :all_blank
 
 
